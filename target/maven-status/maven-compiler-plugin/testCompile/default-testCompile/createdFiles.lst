@@ -1,0 +1,6 @@
+BasicTests\DependencyCheck.class
+BasicTests\ExcelGenerate.class
+BasicTests\CycleCheck.class
+BasicTests\LocationCheck.class
+BasicTests\LayerArchitecture.class
+BasicTests\NamingConvention.class

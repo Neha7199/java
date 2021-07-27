@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+ 
+   <test name="CycleCheck">
+    <classes>
+      <class name="BasicTests.CycleCheck"/>
+    </classes>
+  </test>
+  <test name="DependencyCheck">
+    <classes>
+      <class name="BasicTests.DependencyCheck"/>
+    </classes>
+  </test>
+  <test name="LayerAcess">
+    <classes>
+      <class name="BasicTests.LayerArchitecture"/>
+    </classes>
+  </test>
+  <test name="NamingConvention">
+    <classes>
+      <class name="BasicTests.NamingConvention"/>
+    </classes>
+  </test>
+  <test name="LocationChecks">
+    <classes>
+      <class name="BasicTests.LocationCheck"/>
+    </classes>
+  </test>
+</suite>

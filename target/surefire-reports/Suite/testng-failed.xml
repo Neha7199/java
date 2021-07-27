@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [Suite]">
+  <test name="CycleCheck(failed)">
+    <classes>
+      <class name="BasicTests.CycleCheck">
+        <methods>
+          <include name="cycle_check"/>
+        </methods>
+      </class> <!-- BasicTests.CycleCheck -->
+    </classes>
+  </test> <!-- CycleCheck(failed) -->
+  <test name="NamingConvention(failed)">
+    <classes>
+      <class name="BasicTests.NamingConvention">
+        <methods>
+          <include name="controllers_should_be_suffixed"/>
+        </methods>
+      </class> <!-- BasicTests.NamingConvention -->
+    </classes>
+  </test> <!-- NamingConvention(failed) -->
+  <test name="LocationChecks(failed)">
+    <classes>
+      <class name="BasicTests.LocationCheck">
+        <methods>
+          <include name="classes_annoated_with_entity_annotation_should_resides_in_entity_package"/>
+        </methods>
+      </class> <!-- BasicTests.LocationCheck -->
+    </classes>
+  </test> <!-- LocationChecks(failed) -->
+</suite> <!-- Failed suite [Suite] -->

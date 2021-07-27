@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="CycleCheck(failed)">
+    <classes>
+      <class name="BasicTests.CycleCheck">
+        <methods>
+          <include name="cycle_check"/>
+        </methods>
+      </class> <!-- BasicTests.CycleCheck -->
+    </classes>
+  </test> <!-- CycleCheck(failed) -->
+  <test name="DependencyCheck(failed)">
+    <classes>
+      <class name="BasicTests.DependencyCheck">
+        <methods>
+          <include name="entity_class_should_not_depend_on_anyone"/>
+        </methods>
+      </class> <!-- BasicTests.DependencyCheck -->
+    </classes>
+  </test> <!-- DependencyCheck(failed) -->
+  <test name="LayerAcess(failed)">
+    <classes>
+      <class name="BasicTests.LayerArchitecture">
+        <methods>
+          <include name="layer_architecture"/>
+        </methods>
+      </class> <!-- BasicTests.LayerArchitecture -->
+    </classes>
+  </test> <!-- LayerAcess(failed) -->
+  <test name="NamingConvention(failed)">
+    <classes>
+      <class name="BasicTests.NamingConvention">
+        <methods>
+          <include name="controllers_should_be_suffixed"/>
+          <include name="interfaces_with_repository_should_be_in_a_repository_package"/>
+        </methods>
+      </class> <!-- BasicTests.NamingConvention -->
+    </classes>
+  </test> <!-- NamingConvention(failed) -->
+  <test name="LocationChecks(failed)">
+    <classes>
+      <class name="BasicTests.LocationCheck">
+        <methods>
+          <include name="interfaces_should_not_placed_in_entity_package"/>
+          <include name="classes_annoated_with_entity_annotation_should_resides_in_entity_package"/>
+        </methods>
+      </class> <!-- BasicTests.LocationCheck -->
+    </classes>
+  </test> <!-- LocationChecks(failed) -->
+</suite> <!-- Failed suite [Suite] -->

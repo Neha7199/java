@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="1" failed="6" total="10" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="243" started-at="2021-07-19T06:56:25Z" finished-at="2021-07-19T06:56:26Z">
+    <groups>
+    </groups>
+    <test name="CycleCheck" duration-ms="73" started-at="2021-07-19T06:56:25Z" finished-at="2021-07-19T06:56:26Z">
+      <class name="BasicTests.CycleCheck">
+        <test-method status="FAIL" signature="cycle_check()[pri:0, instance:BasicTests.CycleCheck@74751b3]" name="cycle_check" duration-ms="66" started-at="2021-07-19T12:26:25Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Architecture Violation [Priority: MEDIUM] - Rule 'slices matching '..demo..(*)..' should be free of cycles' was violated (1 times):
+Cycle detected: Slice firstservice -> 
+                Slice secondservice -> 
+                Slice firstservice
+  1. Dependencies of Slice firstservice
+    - Field <demo.service.firstservice.FirstService.obj> has type <demo.service.secondservice.SecondService> in (FirstService.java:0)
+  2. Dependencies of Slice secondservice
+    - Field <demo.service.secondservice.SecondService.obj> has type <demo.service.firstservice.FirstService> in (SecondService.java:0)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'slices matching '..demo..(*)..' should be free of cycles' was violated (1 times):
+Cycle detected: Slice firstservice -> 
+                Slice secondservice -> 
+                Slice firstservice
+  1. Dependencies of Slice firstservice
+    - Field <demo.service.firstservice.FirstService.obj> has type <demo.service.secondservice.SecondService> in (FirstService.java:0)
+  2. Dependencies of Slice secondservice
+    - Field <demo.service.secondservice.SecondService.obj> has type <demo.service.firstservice.FirstService> in (SecondService.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.tngtech.archunit.library.dependencies.SliceRule.check(SliceRule.java:64)
+	at BasicTests.CycleCheck.cycle_check(CycleCheck.java:20)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cycle_check -->
+      </class> <!-- BasicTests.CycleCheck -->
+    </test> <!-- CycleCheck -->
+    <test name="DependencyCheck" duration-ms="21" started-at="2021-07-19T06:56:26Z" finished-at="2021-07-19T06:56:26Z">
+      <class name="BasicTests.DependencyCheck">
+        <test-method status="SKIP" signature="entity_class_should_not_depend_on_anyone()[pri:0, instance:BasicTests.DependencyCheck@5f9edf14]" name="entity_class_should_not_depend_on_anyone" duration-ms="21" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[Skipping - This is not ready for testing ]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: Skipping - This is not ready for testing 
+	at BasicTests.DependencyCheck.entity_class_should_not_depend_on_anyone(DependencyCheck.java:30)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- entity_class_should_not_depend_on_anyone -->
+      </class> <!-- BasicTests.DependencyCheck -->
+    </test> <!-- DependencyCheck -->
+    <test name="LayerAcess" duration-ms="10" started-at="2021-07-19T06:56:26Z" finished-at="2021-07-19T06:56:26Z">
+      <class name="BasicTests.LayerArchitecture">
+        <test-method status="FAIL" signature="layer_architecture()[pri:0, instance:BasicTests.LayerArchitecture@12359a82]" name="layer_architecture" duration-ms="10" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Architecture Violation [Priority: MEDIUM] - Rule 'Layered architecture consisting of
+layer 'controller' ('..controller..')
+layer 'service' ('..service..')
+layer 'entity' ('..entity..')
+where layer 'controller' may not be accessed by any layer
+where layer 'service' may only be accessed by layers ['controller']' was violated (1 times):
+Field <demo.entity.Customer.obj> has type <demo.controller.CustomerController> in (Customer.java:0)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'Layered architecture consisting of
+layer 'controller' ('..controller..')
+layer 'service' ('..service..')
+layer 'entity' ('..entity..')
+where layer 'controller' may not be accessed by any layer
+where layer 'service' may only be accessed by layers ['controller']' was violated (1 times):
+Field <demo.entity.Customer.obj> has type <demo.controller.CustomerController> in (Customer.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.library.Architectures$LayeredArchitecture.check(Architectures.java:291)
+	at BasicTests.LayerArchitecture.layer_architecture(LayerArchitecture.java:24)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- layer_architecture -->
+      </class> <!-- BasicTests.LayerArchitecture -->
+    </test> <!-- LayerAcess -->
+    <test name="NamingConvention" duration-ms="4" started-at="2021-07-19T06:56:26Z" finished-at="2021-07-19T06:56:26Z">
+      <class name="BasicTests.NamingConvention">
+        <test-method status="FAIL" signature="controllers_should_be_suffixed()[pri:0, instance:BasicTests.NamingConvention@1f6c9cd8]" name="controllers_should_be_suffixed" duration-ms="1" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package '..controller..' should have simple name ending with 'Controller'' was violated (1 times):
+simple name of demo.controller.demo does not end with 'Controller' in (demo.java:0)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package '..controller..' should have simple name ending with 'Controller'' was violated (1 times):
+simple name of demo.controller.demo does not end with 'Controller' in (demo.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at BasicTests.NamingConvention.controllers_should_be_suffixed(NamingConvention.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- controllers_should_be_suffixed -->
+        <test-method status="FAIL" signature="interfaces_with_repository_should_be_in_a_repository_package()[pri:0, instance:BasicTests.NamingConvention@1f6c9cd8]" name="interfaces_with_repository_should_be_in_a_repository_package" duration-ms="1" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Architecture Violation [Priority: MEDIUM] - Rule 'classes that are interfaces and have simple name containing 'Repository' should reside in a package '..repository..'' was violated (1 times):
+Class <demo.entity.DataRepository> does not reside in a package '..repository..' in (DataRepository.java:0)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that are interfaces and have simple name containing 'Repository' should reside in a package '..repository..'' was violated (1 times):
+Class <demo.entity.DataRepository> does not reside in a package '..repository..' in (DataRepository.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at BasicTests.NamingConvention.interfaces_with_repository_should_be_in_a_repository_package(NamingConvention.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- interfaces_with_repository_should_be_in_a_repository_package -->
+        <test-method status="PASS" signature="service_should_be_infix_with_service_word()[pri:0, instance:BasicTests.NamingConvention@1f6c9cd8]" name="service_should_be_infix_with_service_word" duration-ms="1" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- service_should_be_infix_with_service_word -->
+      </class> <!-- BasicTests.NamingConvention -->
+    </test> <!-- NamingConvention -->
+    <test name="LocationChecks" duration-ms="13" started-at="2021-07-19T06:56:26Z" finished-at="2021-07-19T06:56:26Z">
+      <class name="BasicTests.LocationCheck">
+        <test-method status="PASS" signature="classes_annoated_with_controller_annotation_should_resides_in_controller_package()[pri:0, instance:BasicTests.LocationCheck@27305e6]" name="classes_annoated_with_controller_annotation_should_resides_in_controller_package" duration-ms="10" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- classes_annoated_with_controller_annotation_should_resides_in_controller_package -->
+        <test-method status="FAIL" signature="classes_annoated_with_entity_annotation_should_resides_in_entity_package()[pri:0, instance:BasicTests.LocationCheck@27305e6]" name="classes_annoated_with_entity_annotation_should_resides_in_entity_package" duration-ms="1" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Architecture Violation [Priority: MEDIUM] - Rule 'classes that are annotated with @Entity should reside in a package '..entity..'' was violated (1 times):
+Class <demo.controller.demoController> does not reside in a package '..entity..' in (demoController.java:0)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that are annotated with @Entity should reside in a package '..entity..'' was violated (1 times):
+Class <demo.controller.demoController> does not reside in a package '..entity..' in (demoController.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at BasicTests.LocationCheck.classes_annoated_with_entity_annotation_should_resides_in_entity_package(LocationCheck.java:26)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- classes_annoated_with_entity_annotation_should_resides_in_entity_package -->
+        <test-method status="PASS" signature="classes_annoated_with_service_annotation_should_resides_in_service_package()[pri:0, instance:BasicTests.LocationCheck@27305e6]" name="classes_annoated_with_service_annotation_should_resides_in_service_package" duration-ms="1" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- classes_annoated_with_service_annotation_should_resides_in_service_package -->
+        <test-method status="FAIL" signature="interfaces_should_not_placed_in_entity_package()[pri:0, instance:BasicTests.LocationCheck@27305e6]" name="interfaces_should_not_placed_in_entity_package" duration-ms="1" started-at="2021-07-19T12:26:26Z" finished-at="2021-07-19T12:26:26Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package '..entity' should not be interfaces' was violated (1 times):
+Class <demo.entity.DataRepository> is an interface in (DataRepository.java:0)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package '..entity' should not be interfaces' was violated (1 times):
+Class <demo.entity.DataRepository> is an interface in (DataRepository.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at BasicTests.LocationCheck.interfaces_should_not_placed_in_entity_package(LocationCheck.java:64)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:659)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:845)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1153)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:771)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1199)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1124)
+	at org.testng.TestNG.run(TestNG.java:1032)
+	at BasicTests.ExcelGenerate.main(ExcelGenerate.java:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- interfaces_should_not_placed_in_entity_package -->
+      </class> <!-- BasicTests.LocationCheck -->
+    </test> <!-- LocationChecks -->
+  </suite> <!-- Suite -->
+</testng-results>
