@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ArchUnitDemo</groupId>
+  <artifactId>ArchUnitDemo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+ <dependencies>
+ <!-- Extent Report dependency -->
+ <dependency>
+ <groupId>com.relevantcodes</groupId>
+ <artifactId>extentreports</artifactId>
+ <version>2.41.1</version>
+ </dependency> 
+ <!-- TestNG dependency -->
+ <dependency>
+ <groupId>org.testng</groupId>
+ <artifactId>testng</artifactId>
+ <version>6.9.4</version>
+ <scope>test</scope>
+ </dependency> 
+ 		  <dependency>
+        <groupId>org.apache.maven.doxia</groupId>
+        <artifactId>doxia-site-renderer</artifactId>
+        <version>1.8.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+</dependency>
+
+    <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+    <version>2.5.2</version>
+	</dependency>
+	<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-jpa</artifactId>
+    <version>2.5.2</version>
+</dependency>
+    	<dependency>
+    		<groupId>com.tngtech.archunit</groupId>
+    		<artifactId>archunit-junit4</artifactId>
+    		<version>0.19.0</version>
+    		<scope>test</scope>
+		</dependency>
+    <!-- https://mvnrepository.com/artifact/net.sf.automatic-report-generator/xls-generator -->
+<dependency>
+    <groupId>net.sf.automatic-report-generator</groupId>
+    <artifactId>xls-generator</artifactId>
+    <version>v1.0</version>
+</dependency>
+    <!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
+<dependency>
+    <groupId>jfree</groupId>
+    <artifactId>jfreechart</artifactId>
+    <version>1.0.13</version>
+</dependency>
+    <!-- https://mvnrepository.com/artifact/javax.persistence/javax.persistence-api -->
+<dependency>
+    <groupId>javax.persistence</groupId>
+    <artifactId>javax.persistence-api</artifactId>
+    <version>2.2</version>
+</dependency>
+    <!-- https://mvnrepository.com/artifact/jfree/jfreechart -->
+<dependency>
+    <groupId>jfree</groupId>
+    <artifactId>jfreechart</artifactId>
+    <version>1.0.13</version>
+</dependency>
+    
+ </dependencies>
+
+<build> 
+ <plugins>
+ <!-- Suirefire plugin to run xml files --> 
+ <plugin>
+ <groupId>org.apache.maven.plugins</groupId>
+ <artifactId>maven-surefire-plugin</artifactId>
+ <version>2.18.1</version>
+ <configuration>
+ <suiteXmlFiles>
+ <!-- TestNG suite XML files -->
+ <suiteXmlFile>testng.xml</suiteXmlFile>
+ </suiteXmlFiles>
+  <testFailureIgnore>true</testFailureIgnore>
+	            <includes>
+                    <include>${runSuite}</include>
+                </includes>
+ </configuration>
+ </plugin>
+	<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7.1</version>
+                
+        </plugin>
+ 
+ </plugins>
+</build>
+</project>

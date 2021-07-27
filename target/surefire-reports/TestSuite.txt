@@ -1,0 +1,38 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 2.283 sec <<< FAILURE! - in TestSuite
+cycle_check(BasicTests.CycleCheck)  Time elapsed: 0.074 sec  <<< FAILURE!
+java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'slices matching '..demo..(*)..' should be free of cycles' was violated (1 times):
+Cycle detected: Slice firstservice -> 
+                Slice secondservice -> 
+                Slice firstservice
+  1. Dependencies of Slice firstservice
+    - Field <demo.service.firstservice.FirstService.obj> has type <demo.service.secondservice.SecondService> in (FirstService.java:0)
+  2. Dependencies of Slice secondservice
+    - Field <demo.service.secondservice.SecondService.obj> has type <demo.service.firstservice.FirstService> in (SecondService.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.tngtech.archunit.library.dependencies.SliceRule.check(SliceRule.java:64)
+	at BasicTests.CycleCheck.cycle_check(CycleCheck.java:26)
+
+controllers_should_be_suffixed(BasicTests.NamingConvention)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package '..controller..' should have simple name ending with 'Controller'' was violated (1 times):
+simple name of demo.controller.demo does not end with 'Controller' in (demo.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at BasicTests.NamingConvention.controllers_should_be_suffixed(NamingConvention.java:23)
+
+classes_annoated_with_entity_annotation_should_resides_in_entity_package(BasicTests.LocationCheck)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that are annotated with @Entity should reside in a package '..entity..'' was violated (1 times):
+Class <demo.controller.demo> does not reside in a package '..entity..' in (demo.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:82)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:198)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at BasicTests.LocationCheck.classes_annoated_with_entity_annotation_should_resides_in_entity_package(LocationCheck.java:30)
+
