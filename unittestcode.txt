@@ -1,0 +1,209 @@
+[Test]
+		
+	
+		public void Test1()
+		{
+			ExtentTest test = extent.CreateTest("Types_that_resides_in_controller_package_should_not_be_interfaces");
+			
+			var result = Types.InCurrentDomain()
+							.That()
+							.ResideInNamespace("NetArchTestApp.Controller")
+							.ShouldNot()
+							 .BeInterfaces().GetResult();
+			try
+			{
+				if (result.IsSuccessful)
+				{
+
+					test.Log(Status.Pass);
+				}
+				else
+				{
+
+					throw new Exception();
+				}
+			}
+			catch (Exception e)
+			{
+				test.Log(Status.Fail, GetFailingTypes(result));
+				throw;
+
+			}
+
+			if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Skipped)
+				test.Log(Status.Skip);
+
+		}
+
+		[Test]
+		public void Test2()
+		{
+				ExtentTest test = extent.CreateTest("controller_name_should_start_with_controller_word");
+			var result2 = Types.InCurrentDomain()
+				.That()
+				.ResideInNamespace("NetArchTestApp.Controller")
+							.Should()
+							.HaveNameStartingWith("Controller").GetResult();
+							
+		try
+			{
+				if (result2.IsSuccessful) 
+				{
+
+					test.Log(Status.Pass);
+				}
+				else
+				{
+					
+					throw new Exception();
+				}
+			} catch (Exception e) {
+				
+				test.Log(Status.f, GetFailingTypes(result2));
+				throw;
+
+			}
+			 
+		}
+		[Test]
+		public void Test3()
+		{
+			ExtentTest test = extent.CreateTest("controllers_should_not_be_depend_on_anyOne");
+			var result = Types.InCurrentDomain()
+							.That()
+							.ResideInNamespace("NetArchTestApp.Controller")
+							.Should()
+							.NotHaveDependencyOnAny("NetArchTestApp").GetResult();
+							 
+			try
+			{
+				if (result.IsSuccessful)
+				{
+
+					test.Log(Status.Pass);
+				}
+				else
+				{
+
+					throw new Exception();
+				}
+			}
+			catch (Exception e)
+			{
+				test.Log(Status.Fail, GetFailingTypes(result));
+				throw;
+
+			}
+
+		}
+		[Test]
+		public void Test4()
+		{
+			ExtentTest test = extent.CreateTest("Service_class_should_not_implement_interface");
+			var result = Types.InCurrentDomain()
+								.That()
+								.ResideInNamespace("NetArchTestApp.Service")
+								.ShouldNot()
+								.ImplementInterface(typeof(Interface.StudentInterface))
+							
+								
+								
+							.GetResult();
+
+			try
+			{
+				if (result.IsSuccessful)
+				{
+
+					test.Log(Status.Pass);
+				}
+				else
+				{
+
+					throw new Exception();
+				}
+			}
+			catch (Exception e)
+			{
+				test.Log(Status.Fail, GetFailingTypes(result));
+				throw;
+
+			}
+
+		}
+		[Test]
+		public void Test5()
+		{
+			ExtentTest test = extent.CreateTest("Service_class_should_not_implement_interface");
+			var result = Types.InCurrentDomain()
+								.That()
+								.ImplementInterface(typeof(Interface.StudentInterface))
+								.Should()
+								.NotBeAbstract()
+
+
+
+							.GetResult();
+
+			try
+			{
+				if (result.IsSuccessful)
+				{
+
+					test.Log(Status.Pass);
+				}
+				else
+				{
+
+					throw new Exception();
+				}
+			}
+			catch (Exception e)
+			{
+				test.Log(Status.Fail, GetFailingTypes(result));
+				throw;
+
+			}
+
+		}
+		[Test]
+		public void Test6()
+		{
+			ExtentTest test = extent.CreateTest("interface_should_start_or_end_with_interface_word");
+			var result = Types.InCurrentDomain()
+								.That()
+								
+								
+								.ResideInNamespace("NetArchTestApp.Interface")
+								
+								.Should()
+								.HaveNameStartingWith("Interface")
+								.Or()
+								.HaveNameEndingWith("Interface")
+								.Or()
+								.HaveNameMatching("Interface")
+								
+
+							.GetResult();
+
+			try
+			{
+				if (result.IsSuccessful)
+				{
+
+					test.Log(Status.Pass);
+				}
+				else
+				{
+
+					throw new Exception();
+				}
+			}
+			catch (Exception e)
+			{
+				test.Log(Status.Fail, GetFailingTypes(result));
+				throw;
+
+			}
+
+		}
