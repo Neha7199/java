@@ -1,0 +1,20 @@
+name: hello-world
+description: Add Hello World to Pom.xml
+
+# Find all repositories that contain a README.md file.
+on:
+  - repositoriesMatchingQuery: file:pom.xml
+
+# In each repository, run this command. Each repository's resulting diff is captured.
+steps:
+  - run: echo Hello World | tee -a $(find -name pom.xml)
+    container: alpine:3
+
+# Describe the changeset (e.g., GitHub pull request) you want for each repository.
+changesetTemplate:
+  title: Hello World
+  body: My first batch change!
+  branch: master # Push the commit to this branch.
+  commit:
+    message: Append Hello World to all pom.xml files
+  published: false
